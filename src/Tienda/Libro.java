@@ -1,6 +1,6 @@
 package Tienda;
 
-public class Videojuegos {
+public class Libro {
 
     private String codigo;
     private String nombre;
@@ -8,7 +8,7 @@ public class Videojuegos {
     private int stock;
 
 
-    public Videojuegos(String codigo, String nombre, double precio, int stock) {
+    public Libro(String codigo, String nombre, double precio, int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;

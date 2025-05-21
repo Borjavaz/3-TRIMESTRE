@@ -1,27 +1,30 @@
 package Boletin13_11;
 
 import java.util.Date;
+public class Academico implements Comparable<Academico> {
+    private String nome;
+    private int anoIngreso;
 
-public class Academico {
-
-    private Character letra;
-    private Date anoNacemento;
-
-    public Academico(Character letra, Date anoNacemento) {
-        this.letra = letra;
-        this.anoNacemento = anoNacemento;
+    public Academico(String nome, int anoIngreso) {
+        this.nome = nome;
+        this.anoIngreso = anoIngreso;
     }
 
-    public String getLetra() {
-        return letra.toString();
+    public String getNome() {
+        return nome;
     }
 
-    public int getAnoNacemento() {
-        return anoNacemento.getYear();
+    public int getAnoIngreso() {
+        return anoIngreso;
+    }
+
+    @Override
+    public int compareTo(Academico outro) {
+        return this.nome.compareTo(outro.nome);
     }
 
     @Override
     public String toString() {
-        return letra + " - Ano de nacemento: " + anoNacemento.getYear();
+        return nome + " (" + anoIngreso + ")";
     }
 }

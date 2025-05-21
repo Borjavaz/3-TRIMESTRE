@@ -1,13 +1,12 @@
 package Tienda;
 
 import java.io.*;
-import java.io.*;
 import java.util.*;
 
 public class TiendaVideojuegos {
 
         private static final String FICHEIRO = "videojuegos.txt";
-        private static Map<String, Videojuegos> inventario = new HashMap<>();
+        private static Map<String, Libro> inventario = new HashMap<>();
 
         public static void main(String[] args) {
             cargarInventario();
@@ -63,7 +62,7 @@ public class TiendaVideojuegos {
                 System.out.print("Stock: ");
                 int stock = Integer.parseInt(sc.nextLine());
 
-                Videojuegos juego = new Videojuegos(codigo, nombre, precio, stock);
+                Libro juego = new Libro(codigo, nombre, precio, stock);
                 inventario.put(codigo, juego);
                 System.out.println("Videojuego añadido correctamente.");
             } catch (Exception e) {
@@ -76,7 +75,7 @@ public class TiendaVideojuegos {
                 System.out.println("No hay videojuegos registrados.");
             } else {
                 System.out.println("\nLista de videojuegos:");
-                for (Videojuegos v : inventario.values()) {
+                for (Libro v : inventario.values()) {
                     System.out.println(v);
                 }
             }
@@ -124,7 +123,7 @@ public class TiendaVideojuegos {
                         String nombre = partes[1];
                         double precio = Double.parseDouble(partes[2]);
                         int stock = Integer.parseInt(partes[3]);
-                        inventario.put(codigo, new Videojuegos(codigo, nombre, precio, stock));
+                        inventario.put(codigo, new Libro(codigo, nombre, precio, stock));
                     }
                 }
             } catch (IOException e) {
@@ -134,7 +133,7 @@ public class TiendaVideojuegos {
 
         private static void guardarInventario() {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(FICHEIRO))) {
-                for (Videojuegos v : inventario.values()) {
+                for (Libro v : inventario.values()) {
                     bw.write(v.getCodigo() + ":" + v.getNombre() + ":" + v.getPrecio() + ":" + v.getStock());
                     bw.newLine();
                 }
