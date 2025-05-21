@@ -3,30 +3,33 @@ package Tienda;
 public class Videojuegos {
 
     private String codigo;
-    private String cantidad;
+    private String nombre;
     private double precio;
     private int stock;
 
 
-    public Videojuegos(String codigo, int cantidade) {
+    public Videojuegos(String codigo, String nombre, double precio, int stock) {
         this.codigo = codigo;
-        this.cantidade = cantidade;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
     }
 
     public String getCodigo() {
         return codigo;
     }
+    public int getStock() { return stock;}
+    public String getNombre() { return nombre;}
+    public double getPrecio() { return precio;}
 
-    public int getCantidade() {
-        return cantidade;
-    }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public void setStock(int stock) { this.stock = stock;}
+    public void setNombre(String nombre) { this.nombre = nombre;}
+    public void setPrecio(double precio) { this.precio = precio;}
 
-    public void setCantidade(int cantidade) {
-        this.cantidade = cantidade;
-    }
 
     @Override
     public String toString() {
-        return codigo + " - Stock: " + cantidade;
+        return "-Codigo: " + codigo + " - Nombre: " + nombre + " - Precio: " + precio + " - Stock: " + stock;
     }
 }
